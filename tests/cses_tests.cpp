@@ -6,7 +6,41 @@ using namespace std;
 
 TEST(CSEStest, WeirdAlgorithm)
 {
-    ifstream ifs;
-    ifs.open("weird.txt");
-    EXPECT_EQ((weird_algorithm()).str(), "7 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1");
+    string prefix = "/Users/michael/projects/cses-cpp/tests/test_data/weird_algorithm_";
+    std::ifstream input;
+    std::ifstream answer_file;
+    std::stringstream output;
+    std::string answer;
+
+    input.open(prefix + "01q.txt", std::ifstream::in);
+    answer_file.open(prefix + "01a.txt", std::ifstream::in);
+    output = weird_algorithm(input);
+    getline(answer_file, answer);
+    EXPECT_EQ(output.str(), answer);
+    input.close();
+    answer_file.close();
+
+    input.open(prefix + "02q.txt", std::ifstream::in);
+    answer_file.open(prefix + "02a.txt", std::ifstream::in);
+    output = weird_algorithm(input);
+    getline(answer_file, answer);
+    EXPECT_EQ(output.str(), answer);
+    input.close();
+    answer_file.close();
+
+    input.open(prefix + "03q.txt", std::ifstream::in);
+    answer_file.open(prefix + "03a.txt", std::ifstream::in);
+    output = weird_algorithm(input);
+    getline(answer_file, answer);
+    EXPECT_EQ(output.str(), answer);
+    input.close();
+    answer_file.close();
+
+    input.open(prefix + "04q.txt", std::ifstream::in);
+    answer_file.open(prefix + "04a.txt", std::ifstream::in);
+    output = weird_algorithm(input);
+    getline(answer_file, answer);
+    EXPECT_EQ(output.str(), answer);
+    input.close();
+    answer_file.close();
 }
