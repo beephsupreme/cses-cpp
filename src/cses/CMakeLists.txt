@@ -1,6 +1,11 @@
 set(LIBRARY_NAME cses)
-set(LIBRARY_SOURCES "weird_algorithm.cpp")
-set(LIBRARY_HEADERS "weird_algorithm.h")
+set(LIBRARY_SOURCES
+        weird_algorithm.cpp
+        missing_number.cpp)
+set(LIBRARY_HEADERS
+        weird_algorithm.h
+        missing_number.h)
+
 set(LIBRARY_INCLUDES "./" "${CMAKE_BINARY_DIR}/configured_files/include")
 
 add_library(${LIBRARY_NAME} STATIC
