@@ -4,43 +4,40 @@
 
 using namespace std;
 
-TEST(CSEStest, WeirdAlgorithm)
-{
-    string prefix = "/Users/michael/projects/cses-cpp/tests/test_data/weird_algorithm_";
-    std::ifstream input;
-    std::ifstream answer_file;
+TEST(CSEStest, WeirdAlgorithm) {
+    string directory = "/Users/michael/projects/cses-cpp/tests/test_data/weird_algorithm/";
+    std::ifstream questions;
+    std::ifstream answers;
     std::stringstream output;
     std::string answer;
+    std::vector<std::filesystem::path> filenames;
+    std::vector<std::string> answers_list;
+    std::vector<std::string> questions_list;
 
-    input.open(prefix + "01q.txt", std::ifstream::in);
-    answer_file.open(prefix + "01a.txt", std::ifstream::in);
-    output = weird_algorithm(input);
-    getline(answer_file, answer);
-    EXPECT_EQ(output.str(), answer);
-    input.close();
-    answer_file.close();
+    for (const auto &entry: std::filesystem::directory_iterator(directory)) {
+        filenames.emplace_back(entry.path().string());
+    }
 
-    input.open(prefix + "02q.txt", std::ifstream::in);
-    answer_file.open(prefix + "02a.txt", std::ifstream::in);
-    output = weird_algorithm(input);
-    getline(answer_file, answer);
-    EXPECT_EQ(output.str(), answer);
-    input.close();
-    answer_file.close();
+    for (const std::filesystem::path &file: filenames) {
+        if (file.string().find("question") != std::string::npos) {
+            questions_list.push_back(file.string());
+        }
+        if (file.string().find("answer") != std::string::npos) {
+            answers_list.push_back(file.string());
+        }
+    }
 
-    input.open(prefix + "03q.txt", std::ifstream::in);
-    answer_file.open(prefix + "03a.txt", std::ifstream::in);
-    output = weird_algorithm(input);
-    getline(answer_file, answer);
-    EXPECT_EQ(output.str(), answer);
-    input.close();
-    answer_file.close();
+    std::sort(answers_list.begin(), answers_list.end());
+    std::sort(questions_list.begin(), questions_list.end());
 
-    input.open(prefix + "04q.txt", std::ifstream::in);
-    answer_file.open(prefix + "04a.txt", std::ifstream::in);
-    output = weird_algorithm(input);
-    getline(answer_file, answer);
-    EXPECT_EQ(output.str(), answer);
-    input.close();
-    answer_file.close();
+    for (int i = 0; i < answers_list.size(); ++i) {
+//        std::cout << "Testing: " << questions_list[i] << std::endl;
+        answers.open(answers_list[i], std::ifstream::in);
+        questions.open(questions_list[i], std::ifstream::in);
+        output = weird_algorithm(questions);
+        getline(answers, answer);
+        EXPECT_EQ(output.str(), answer);
+        questions.close();
+        answers.close();
+    }
 }
