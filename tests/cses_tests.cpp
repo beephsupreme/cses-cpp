@@ -1,122 +1,68 @@
 #include <gtest/gtest.h>
 #include <bits/stdc++.h>
+
 #include "weird_algorithm.h"
 #include "missing_number.h"
 #include "repetitions.h"
 
 using namespace std;
 
-TEST(CSEStest, WeirdAlgorithm) {
-    string directory = "/Users/michael/projects/cses-cpp/tests/test_data/weird_algorithm/";
-    std::ifstream questions;
-    std::ifstream answers;
-    std::stringstream output;
-    std::string answer;
-    std::vector<std::filesystem::path> filenames;
-    std::vector<std::string> answers_list;
-    std::vector<std::string> questions_list;
+class CSEStest : public testing::Test {
+ protected:
+  string directory;
+  std::ifstream questions;
+  std::ifstream answers;
+  std::stringstream output;
+  std::string answer;
+  std::vector<std::filesystem::path> filenames;
+  std::vector<std::string> answers_list;
+  std::vector<std::string> questions_list;
 
-    for (const auto &entry: std::filesystem::directory_iterator(directory)) {
-        filenames.emplace_back(entry.path().string());
+  void SetUp(const std::string &sub_directory, const function<stringstream(istream &)> &func) {
+    directory = "/Users/michael/projects/cses-cpp/tests/test_data/";
+    directory.append(sub_directory);
+
+//    cout << "directory name: " << directory << endl;
+    for (const auto &entry : std::filesystem::directory_iterator(directory)) {
+      filenames.emplace_back(entry.path().string());
     }
 
-    for (const std::filesystem::path &file: filenames) {
-        if (file.string().find("question") != std::string::npos) {
-            questions_list.push_back(file.string());
-        }
-        if (file.string().find("answer") != std::string::npos) {
-            answers_list.push_back(file.string());
-        }
+    for (const std::filesystem::path &file : filenames) {
+      if (file.string().find("question") != std::string::npos) {
+        questions_list.push_back(file.string());
+      }
+      if (file.string().find("answer") != std::string::npos) {
+        answers_list.push_back(file.string());
+      }
     }
 
     std::sort(answers_list.begin(), answers_list.end());
     std::sort(questions_list.begin(), questions_list.end());
 
     for (int i = 0; i < answers_list.size(); ++i) {
-//        std::cout << "Testing: " << questions_list[i] << std::endl;
-        answers.open(answers_list[i], std::ifstream::in);
-        questions.open(questions_list[i], std::ifstream::in);
-        output = weird_algorithm(questions);
-        getline(answers, answer);
-        EXPECT_EQ(output.str(), answer);
-        questions.close();
-        answers.close();
+//      std::cout << "Testing: " << questions_list[i] << std::endl;
+      answers.open(answers_list[i], std::ifstream::in);
+      questions.open(questions_list[i], std::ifstream::in);
+      output = func(questions);
+      getline(answers, answer);
+      EXPECT_EQ(output.str(), answer);
+      questions.close();
+      answers.close();
     }
+  }
+};
+
+TEST_F(CSEStest, WeirdAlgorithm) {
+  std::string sub_directory = "weird_algorithm";
+  SetUp(sub_directory, weird_algorithm);
 }
 
-TEST(CSEStest, MissingNumber) {
-    string directory = "/Users/michael/projects/cses-cpp/tests/test_data/missing_number/";
-    std::ifstream questions;
-    std::ifstream answers;
-    std::stringstream output;
-    std::string answer;
-    std::vector<std::filesystem::path> filenames;
-    std::vector<std::string> answers_list;
-    std::vector<std::string> questions_list;
-
-    for (const auto &entry: std::filesystem::directory_iterator(directory)) {
-        filenames.emplace_back(entry.path().string());
-    }
-
-    for (const std::filesystem::path &file: filenames) {
-        if (file.string().find("question") != std::string::npos) {
-            questions_list.push_back(file.string());
-        }
-        if (file.string().find("answer") != std::string::npos) {
-            answers_list.push_back(file.string());
-        }
-    }
-
-    std::sort(answers_list.begin(), answers_list.end());
-    std::sort(questions_list.begin(), questions_list.end());
-
-    for (int i = 0; i < answers_list.size(); ++i) {
-//        std::cout << "Testing: " << questions_list[i] << std::endl;
-        answers.open(answers_list[i], std::ifstream::in);
-        questions.open(questions_list[i], std::ifstream::in);
-        output = missing_number(questions);
-        getline(answers, answer);
-        EXPECT_EQ(output.str(), answer);
-        questions.close();
-        answers.close();
-    }
+TEST_F(CSEStest, MissingNumber) {
+  std::string sub_directory = "missing_number";
+  SetUp(sub_directory, missing_number);
 }
 
-TEST(CSEStest, Repetitions) {
-    string directory = "/Users/michael/projects/cses-cpp/tests/test_data/repetitions/";
-    std::ifstream questions;
-    std::ifstream answers;
-    std::stringstream output;
-    std::string answer;
-    std::vector<std::filesystem::path> filenames;
-    std::vector<std::string> answers_list;
-    std::vector<std::string> questions_list;
-
-    for (const auto &entry: std::filesystem::directory_iterator(directory)) {
-        filenames.emplace_back(entry.path().string());
-    }
-
-    for (const std::filesystem::path &file: filenames) {
-        if (file.string().find("question") != std::string::npos) {
-            questions_list.push_back(file.string());
-        }
-        if (file.string().find("answer") != std::string::npos) {
-            answers_list.push_back(file.string());
-        }
-    }
-
-    std::sort(answers_list.begin(), answers_list.end());
-    std::sort(questions_list.begin(), questions_list.end());
-
-    for (int i = 0; i < answers_list.size(); ++i) {
-        std::string str = questions_list[i];
-        std::cout << "Testing: " << questions_list[i] << std::endl;
-        answers.open(answers_list[i], std::ifstream::in);
-        questions.open(questions_list[i], std::ifstream::in);
-        output = repetitions(questions);
-        getline(answers, answer);
-        EXPECT_EQ(output.str(), answer);
-        questions.close();
-        answers.close();
-    }
+TEST_F(CSEStest, Repetitions) {
+  std::string sub_directory = "repetitions";
+  SetUp(sub_directory, repetitions);
 }
