@@ -1,10 +1,8 @@
-#pragma GCC optimize("-O3","unroll-loops")
-#pragma GCC optimize("-Ofast")
 #include <bits/stdc++.h>
-#include "missing_number.h"
+#include "repetitions.h"
 
 int main() {
-    std::stringstream output = missing_number(std::cin);
+    std::stringstream output = repetitions(std::cin);
     std::cout << output.str() << std::endl;
     return 0;
 }
