@@ -2,11 +2,13 @@ set(LIBRARY_NAME cses)
 set(LIBRARY_SOURCES
         weird_algorithm.cpp
         missing_number.cpp
-        repetitions.cpp)
+        repetitions.cpp
+        increasing_array.cpp)
 set(LIBRARY_HEADERS
         weird_algorithm.h
         missing_number.h
-        repetitions.h)
+        repetitions.h
+        increasing_array.h)
 
 set(LIBRARY_INCLUDES "./" "${CMAKE_BINARY_DIR}/configured_files/include")
 

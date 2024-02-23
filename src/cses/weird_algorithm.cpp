@@ -1,10 +1,8 @@
 #include "weird_algorithm.h"
-#include <bits/stdc++.h>
+#include <sstream>
 
-using namespace std;
-
-stringstream weird_algorithm(istream &input) {
-  stringstream output;
+std::stringstream weird_algorithm(std::istream &input) {
+  std::stringstream output;
   uint64_t n;
   input >> n;
   while (true) {

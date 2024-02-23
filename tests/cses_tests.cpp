@@ -1,9 +1,12 @@
 #include <gtest/gtest.h>
-#include <bits/stdc++.h>
+#include <filesystem>
+#include <sstream>
+#include <fstream>
 
 #include "weird_algorithm.h"
 #include "missing_number.h"
 #include "repetitions.h"
+#include "increasing_array.h"
 
 using namespace std;
 
@@ -28,10 +31,10 @@ class CSEStest : public testing::Test {
     }
 
     for (const std::filesystem::path &file : filenames) {
-      if (file.string().find("question") != std::string::npos) {
+      if (file.string().find("test_input") != std::string::npos) {
         questions_list.push_back(file.string());
       }
-      if (file.string().find("answer") != std::string::npos) {
+      if (file.string().find("test_output") != std::string::npos) {
         answers_list.push_back(file.string());
       }
     }
@@ -65,4 +68,9 @@ TEST_F(CSEStest, MissingNumber) {
 TEST_F(CSEStest, Repetitions) {
   std::string sub_directory = "repetitions";
   SetUp(sub_directory, repetitions);
+}
+
+TEST_F(CSEStest, IncreasingArray) {
+  std::string sub_directory = "increasing_array";
+  SetUp(sub_directory, increasing_array);
 }

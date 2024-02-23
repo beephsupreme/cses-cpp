@@ -1,5 +1,5 @@
 #include "missing_number.h"
-#include <bits/stdc++.h>
+#include <sstream>
 
 std::stringstream missing_number(std::istream &input) {
   std::stringstream output;

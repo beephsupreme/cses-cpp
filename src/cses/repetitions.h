@@ -1,4 +1,4 @@
 #pragma once
-#include <bits/stdc++.h>
+#include <sstream>
 
 std::stringstream repetitions(std::istream &input);
