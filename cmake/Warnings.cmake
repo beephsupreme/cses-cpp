@@ -11,7 +11,8 @@ function(target_set_warnings TARGET ENABLED ENABLED_AS_ERRORS)
     set(CLANG_WARNINGS
             -Wall
             -Wextra
-            -Wpedantic)
+            -Wpedantic
+            -Wsign-compare)
 
     set(GCC_WARNINGS
             ${CLANG_WARNINGS})
