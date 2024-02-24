@@ -9,6 +9,7 @@
 #include "increasing_array.h"
 #include "permutations.h"
 #include "number_spiral.h"
+#include "two_knights.h"
 
 using namespace std;
 
@@ -94,4 +95,9 @@ TEST_F(CSEStest, Permutations) {
 TEST_F(CSEStest, NumberSpiral) {
   std::string sub_directory = "number_spiral";
   SetUp(sub_directory, number_spiral, true);
+}
+
+TEST_F(CSEStest, TwoKnights) {
+  std::string sub_directory = "two_knights";
+  SetUp(sub_directory, two_knights, true);
 }
