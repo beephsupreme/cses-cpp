@@ -23,6 +23,6 @@ std::stringstream increasing_array(std::istream &input) {
     v[i] += dif;
   }
 
-  output << mn;
+  output << mn << '\n';
   return output;
 }

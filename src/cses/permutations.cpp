@@ -17,5 +17,6 @@ std::stringstream permutations(std::istream &input) {
       output << i << ' ';
     }
   }
+  output << '\n';
   return output;
 }

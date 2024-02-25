@@ -20,6 +20,6 @@ std::stringstream repetitions(std::istream &input) {
     curr = next;
     count = 1;
   }
-  output << max;
+  output << max << '\n';
   return output;
 }

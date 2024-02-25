@@ -10,6 +10,6 @@ std::stringstream missing_number(std::istream &input) {
     input >> s;
     sum -= s;
   }
-  output << sum;
+  output << sum << '\n';
   return output;
 }

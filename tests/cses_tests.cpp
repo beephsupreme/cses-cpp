@@ -28,8 +28,7 @@ class CSEStest : public testing::Test {
   std::stringstream output;
 
   void SetUp(const std::string &sub_directory,
-             const function<stringstream(istream &)> &func,
-             const bool multiline_answer) {
+             const function<stringstream(istream &)> &func) {
 
     directory = "/Users/michael/projects/cses-cpp/tests/test_data/";
     directory.append(sub_directory);
@@ -52,17 +51,11 @@ class CSEStest : public testing::Test {
       questions.open(questions_list[i], std::ifstream::in);
       answers.open(answers_list[i], std::ifstream::in);
       output = func(questions);
-
-      if (multiline_answer) {
-        while (getline(answers, answer)) {
-          result << answer << std::endl;
-        }
-        EXPECT_EQ(output.str(), result.str());
-        result.str(std::string());
-      } else {
-        getline(answers, answer);
-        EXPECT_EQ(output.str(), answer);
+      while (getline(answers, answer)) {
+        result << answer << std::endl;
       }
+      EXPECT_EQ(output.str(), result.str());
+      result.str(std::string());
       questions.close();
       answers.close();
     }
@@ -71,45 +64,45 @@ class CSEStest : public testing::Test {
 
 TEST_F(CSEStest, WeirdAlgorithm) {
   std::string sub_directory = "weird_algorithm";
-  SetUp(sub_directory, weird_algorithm, false);
+  SetUp(sub_directory, weird_algorithm);
 }
 
 TEST_F(CSEStest, MissingNumber) {
   std::string sub_directory = "missing_number";
-  SetUp(sub_directory, missing_number, false);
+  SetUp(sub_directory, missing_number);
 }
 
 TEST_F(CSEStest, Repetitions) {
   std::string sub_directory = "repetitions";
-  SetUp(sub_directory, repetitions, false);
+  SetUp(sub_directory, repetitions);
 }
 
 TEST_F(CSEStest, IncreasingArray) {
   std::string sub_directory = "increasing_array";
-  SetUp(sub_directory, increasing_array, false);
+  SetUp(sub_directory, increasing_array);
 }
 
 TEST_F(CSEStest, Permutations) {
   std::string sub_directory = "permutations";
-  SetUp(sub_directory, permutations, false);
+  SetUp(sub_directory, permutations);
 }
 
 TEST_F(CSEStest, NumberSpiral) {
   std::string sub_directory = "number_spiral";
-  SetUp(sub_directory, number_spiral, true);
+  SetUp(sub_directory, number_spiral);
 }
 
 TEST_F(CSEStest, TwoKnights) {
   std::string sub_directory = "two_knights";
-  SetUp(sub_directory, two_knights, true);
+  SetUp(sub_directory, two_knights);
 }
 
 TEST_F(CSEStest, TwoSets) {
   std::string sub_directory = "two_sets";
-  SetUp(sub_directory, two_sets, true);
+  SetUp(sub_directory, two_sets);
 }
 
 TEST_F(CSEStest, BitStrings) {
   std::string sub_directory = "bit_strings";
-  SetUp(sub_directory, bit_strings, true);
+  SetUp(sub_directory, bit_strings);
 }
