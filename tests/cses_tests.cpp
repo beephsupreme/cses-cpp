@@ -11,6 +11,7 @@
 #include "number_spiral.h"
 #include "two_knights.h"
 #include "two_sets.h"
+#include "bit_strings.h"
 
 using namespace std;
 
@@ -106,4 +107,9 @@ TEST_F(CSEStest, TwoKnights) {
 TEST_F(CSEStest, TwoSets) {
   std::string sub_directory = "two_sets";
   SetUp(sub_directory, two_sets, true);
+}
+
+TEST_F(CSEStest, BitStrings) {
+  std::string sub_directory = "bit_strings";
+  SetUp(sub_directory, bit_strings, true);
 }
