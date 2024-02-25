@@ -13,3 +13,4 @@ std::stringstream bit_strings(std::istream &input);
 std::stringstream trailing_zeros(std::istream &input);
 std::stringstream coin_piles(std::istream &input);
 std::stringstream palindrome_reorder(std::istream &input);
+std::stringstream gray_code(std::istream &input);

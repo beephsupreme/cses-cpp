@@ -5,11 +5,11 @@
 
 #include "cses.h"
 
-using namespace std;
+//using namespace std;
 
 class CSEStest : public testing::Test {
  protected:
-  string directory;
+  std::string directory;
   std::vector<std::filesystem::path> filenames;
   std::ifstream questions;
   std::vector<std::string> questions_list;
@@ -20,7 +20,7 @@ class CSEStest : public testing::Test {
   std::stringstream output;
 
   void SetUp(const std::string &sub_directory,
-             const function<stringstream(istream &)> &func) {
+             const std::function<std::stringstream(std::istream&)> &func) {
 
     directory = "/Users/michael/projects/cses-cpp/tests/test_data/";
     directory.append(sub_directory);
@@ -112,4 +112,9 @@ TEST_F(CSEStest, CoinPiles) {
 TEST_F(CSEStest, PalindromeReorder) {
   std::string sub_directory = "palindrome_reorder";
   SetUp(sub_directory, palindrome_reorder);
+}
+#include <bitset>
+TEST_F(CSEStest, GrayCode) {
+  std::string sub_directory = "gray_code";
+  SetUp(sub_directory, gray_code);
 }

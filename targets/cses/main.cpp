@@ -3,7 +3,7 @@
 #include "cses.h"
 
 int main() {
-  std::stringstream output = palindrome_reorder(::std::cin);
+  std::stringstream output = gray_code(::std::cin);
   std::cout << output.str() << '\n';
   return 0;
 }

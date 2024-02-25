@@ -11,7 +11,8 @@ set(LIBRARY_SOURCES
         bit_strings.cpp
         trailing_zeros.cpp
         coin_piles.cpp
-        palindrome_reorder.cpp)
+        palindrome_reorder.cpp
+        gray_code.cpp)
 
 set(LIBRARY_HEADERS cses.h)
 
