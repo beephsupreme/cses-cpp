@@ -1,6 +1,5 @@
 #include "cses.h"
 
-#include <format>
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -24,8 +23,9 @@ std::stringstream gray_code(std::istream &input) {
   }
 
   for (auto &v : V) {
-    std::string num = std::format("{0:0>{1}b}\n", v, n);
-    output << num;
+    for (uint64_t i = 1u << (n - 1); i > 0; i /= 2)
+      output << ((v & i) ? 1 : 0);
+    output << '\n';
   }
   return output;
 }
