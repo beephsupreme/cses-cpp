@@ -108,3 +108,8 @@ TEST_F(CSEStest, CoinPiles) {
   std::string sub_directory = "coin_piles";
   SetUp(sub_directory, coin_piles);
 }
+
+TEST_F(CSEStest, PalindromeReorder) {
+  std::string sub_directory = "palindrome_reorder";
+  SetUp(sub_directory, palindrome_reorder);
+}

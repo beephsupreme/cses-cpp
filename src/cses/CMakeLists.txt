@@ -10,7 +10,8 @@ set(LIBRARY_SOURCES
         two_sets.cpp
         bit_strings.cpp
         trailing_zeros.cpp
-        coin_piles.cpp)
+        coin_piles.cpp
+        palindrome_reorder.cpp)
 
 set(LIBRARY_HEADERS cses.h)
 
