@@ -8,7 +8,8 @@ set(LIBRARY_SOURCES
         number_spiral.cpp
         two_knights.cpp
         two_sets.cpp
-        bit_strings.cpp)
+        bit_strings.cpp
+        trailing_zeros.cpp)
 
 set(LIBRARY_HEADERS
         weird_algorithm.h
@@ -19,7 +20,8 @@ set(LIBRARY_HEADERS
         number_spiral.h
         two_knights.h
         two_sets.h
-        bit_strings.h)
+        bit_strings.h
+        trailing_zeros.h)
 
 set(LIBRARY_INCLUDES "./" "${CMAKE_BINARY_DIR}/configured_files/include")
 

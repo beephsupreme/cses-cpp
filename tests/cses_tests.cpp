@@ -12,6 +12,7 @@
 #include "two_knights.h"
 #include "two_sets.h"
 #include "bit_strings.h"
+#include "trailing_zeros.h"
 
 using namespace std;
 
@@ -105,4 +106,9 @@ TEST_F(CSEStest, TwoSets) {
 TEST_F(CSEStest, BitStrings) {
   std::string sub_directory = "bit_strings";
   SetUp(sub_directory, bit_strings);
+}
+
+TEST_F(CSEStest, TrailingZeros) {
+  std::string sub_directory = "trailing_zeros";
+  SetUp(sub_directory, trailing_zeros);
 }
