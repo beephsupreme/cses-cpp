@@ -10,6 +10,7 @@
 #include "permutations.h"
 #include "number_spiral.h"
 #include "two_knights.h"
+#include "two_sets.h"
 
 using namespace std;
 
@@ -100,4 +101,9 @@ TEST_F(CSEStest, NumberSpiral) {
 TEST_F(CSEStest, TwoKnights) {
   std::string sub_directory = "two_knights";
   SetUp(sub_directory, two_knights, true);
+}
+
+TEST_F(CSEStest, TwoSets) {
+  std::string sub_directory = "two_sets";
+  SetUp(sub_directory, two_sets, true);
 }
