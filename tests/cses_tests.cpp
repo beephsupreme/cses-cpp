@@ -44,7 +44,7 @@ class CSEStest : public testing::Test {
       answers.open(answers_list[i], std::ifstream::in);
       output = func(questions);
       while (getline(answers, answer)) {
-        result << answer << std::endl;
+        result << answer << '\n';
       }
       EXPECT_EQ(output.str(), result.str());
       result.str(std::string());
@@ -102,4 +102,9 @@ TEST_F(CSEStest, BitStrings) {
 TEST_F(CSEStest, TrailingZeros) {
   std::string sub_directory = "trailing_zeros";
   SetUp(sub_directory, trailing_zeros);
+}
+
+TEST_F(CSEStest, CoinPiles) {
+  std::string sub_directory = "coin_piles";
+  SetUp(sub_directory, coin_piles);
 }

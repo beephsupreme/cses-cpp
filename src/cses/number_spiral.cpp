@@ -19,7 +19,7 @@ std::stringstream number_spiral(std::istream &input) {
     mx = std::max(x, y);
     mid = mx * (mx - 1) + 1;
     mid += (mx % 2) ? (y - x) : (x - y);
-    output << mid << std::endl;
+    output << mid << '\n';
   }
   return output;
 }

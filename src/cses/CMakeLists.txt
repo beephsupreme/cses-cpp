@@ -9,7 +9,8 @@ set(LIBRARY_SOURCES
         two_knights.cpp
         two_sets.cpp
         bit_strings.cpp
-        trailing_zeros.cpp)
+        trailing_zeros.cpp
+        coin_piles.cpp)
 
 set(LIBRARY_HEADERS cses.h)
 

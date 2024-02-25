@@ -11,3 +11,4 @@ std::stringstream two_knights(std::istream &input);
 std::stringstream two_sets(std::istream &input);
 std::stringstream bit_strings(std::istream &input);
 std::stringstream trailing_zeros(std::istream &input);
+std::stringstream coin_piles(std::istream &input);

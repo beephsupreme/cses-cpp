@@ -3,7 +3,7 @@
 #include "cses.h"
 
 int main() {
-  std::stringstream output = trailing_zeros(::std::cin);
-  std::cout << output.str() << std::endl;
+  std::stringstream output = coin_piles(::std::cin);
+  std::cout << output.str() << '\n';
   return 0;
 }
