@@ -3,16 +3,7 @@
 #include <sstream>
 #include <fstream>
 
-#include "weird_algorithm.h"
-#include "missing_number.h"
-#include "repetitions.h"
-#include "increasing_array.h"
-#include "permutations.h"
-#include "number_spiral.h"
-#include "two_knights.h"
-#include "two_sets.h"
-#include "bit_strings.h"
-#include "trailing_zeros.h"
+#include "cses.h"
 
 using namespace std;
 

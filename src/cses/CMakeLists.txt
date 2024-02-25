@@ -11,17 +11,7 @@ set(LIBRARY_SOURCES
         bit_strings.cpp
         trailing_zeros.cpp)
 
-set(LIBRARY_HEADERS
-        weird_algorithm.h
-        missing_number.h
-        repetitions.h
-        increasing_array.h
-        permutations.h
-        number_spiral.h
-        two_knights.h
-        two_sets.h
-        bit_strings.h
-        trailing_zeros.h)
+set(LIBRARY_HEADERS cses.h)
 
 set(LIBRARY_INCLUDES "./" "${CMAKE_BINARY_DIR}/configured_files/include")
 

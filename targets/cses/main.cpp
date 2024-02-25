@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sstream>
-#include "trailing_zeros.h"
+#include "cses.h"
 
 int main() {
   std::stringstream output = trailing_zeros(::std::cin);

@@ -1,8 +1,11 @@
-#include "increasing_array.h"
+#include "cses.h"
 #include <sstream>
 #include <vector>
+#include <iostream>
 
 std::stringstream increasing_array(std::istream &input) {
+  std::ios_base::sync_with_stdio(false);
+  std::cin.tie(nullptr);
   std::stringstream output;
   uint64_t n;
   input >> n;

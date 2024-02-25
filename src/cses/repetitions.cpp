@@ -1,7 +1,10 @@
-#include "repetitions.h"
+#include "cses.h"
 #include <sstream>
+#include <iostream>
 
 std::stringstream repetitions(std::istream &input) {
+  std::ios_base::sync_with_stdio(false);
+  std::cin.tie(nullptr);
   std::stringstream output;
   std::string line;
   input >> line;
