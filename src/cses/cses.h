@@ -15,3 +15,4 @@ std::stringstream coin_piles(std::istream &input);
 std::stringstream palindrome_reorder(std::istream &input);
 std::stringstream gray_code(std::istream &input);
 std::stringstream hanoi_run(std::istream &input);
+std::stringstream creating_strings(std::istream &input);

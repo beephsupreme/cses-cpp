@@ -121,3 +121,8 @@ TEST_F(CSEStest, Hanoi) {
   std::string sub_directory = "hanoi";
   SetUp(sub_directory, hanoi_run);
 }
+
+TEST_F(CSEStest, CreatingStrings) {
+  std::string sub_directory = "creating_strings";
+  SetUp(sub_directory, creating_strings);
+}

@@ -13,7 +13,8 @@ set(LIBRARY_SOURCES
         coin_piles.cpp
         palindrome_reorder.cpp
         gray_code.cpp
-        hanoi.cpp)
+        hanoi.cpp
+        creating_strings.cpp)
 
 set(LIBRARY_HEADERS cses.h)
 
