@@ -5,8 +5,6 @@
 
 #include "cses.h"
 
-//using namespace std;
-
 class CSEStest : public testing::Test {
  protected:
   std::string directory;
@@ -113,8 +111,13 @@ TEST_F(CSEStest, PalindromeReorder) {
   std::string sub_directory = "palindrome_reorder";
   SetUp(sub_directory, palindrome_reorder);
 }
-#include <bitset>
+
 TEST_F(CSEStest, GrayCode) {
   std::string sub_directory = "gray_code";
   SetUp(sub_directory, gray_code);
+}
+
+TEST_F(CSEStest, Hanoi) {
+  std::string sub_directory = "hanoi";
+  SetUp(sub_directory, hanoi_run);
 }
